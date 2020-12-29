@@ -12,9 +12,9 @@ describe('isPangram()', () => {
     // Act
     const answer = isPangram(text);
 
-
     // Assert
     expect(answer).toEqual(true);
+
   });
 
   test('works with "abcdefghijklmnopqrstuvwxyz"', () => {
@@ -26,19 +26,17 @@ describe('isPangram()', () => {
 
     // Assert
     expect(answer).toBe(true);
-
   });
 
   test("missing character 'x'", () => {
     // Arrange
-    const text = "abcdefghijklmnopqrstuvwyz"
+    const text = 'the quick brown fo jumps over the lazy dog';
 
     // Act
     const answer = isPangram(text);
 
     // Assert
     expect(answer).toEqual(false);
-
   });
 
   test('empty sentence', () => {
@@ -60,7 +58,6 @@ describe('isPangram()', () => {
     // Act
     const answer = isPangram(text);
 
-
     // Assert
     expect(answer).toEqual(true);
 
@@ -68,11 +65,10 @@ describe('isPangram()', () => {
 
   test('pangram with numbers', () => {
     // Arrange
-    const text = 'the quick brown fox jumps over the 25 lazy dogs';
+    const text = 'the quick brown fox jumps 37 feet over the lazy dog';
 
     // Act
     const answer = isPangram(text);
-
 
     // Assert
     expect(answer).toEqual(true);
@@ -80,4 +76,28 @@ describe('isPangram()', () => {
   });
 
   // Write your own test case
+
+  test('works with pangram with only uppercase', () => {
+
+    // Arrange
+    const text = 'THE QUICK BROWN FOX JUMPS 37 FEET OVER THE LAZY DOG';
+
+    // Act
+    const answer = isPangram(text);
+    
+    // Assert
+    expect(answer).toEqual(true);
+
+  });
+
+  test('returns true for text with each letter multiple times', () => {
+    // Arrange
+    const text = 'abcdefghijklmnopqrstuvwxyz' + 'abcdefghijklmnopqrstuvwxyz';
+
+    // Act
+    const answer = isPangram(text);
+    
+    // Assert
+    expect(answer).toEqual(true);
+  })
 });
